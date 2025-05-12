@@ -5,4 +5,6 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 // idを渡すcontrollerのメソッド urlのパラメーターの引数をshowメソッドに渡す
-Route::get('/post/{id}', [PostController::class, 'show'])->name('posts.show');
+//このルートにアクセスすると PostController の show() メソッドが実行される
+// 名前付きルートにすることで、ビューやリダイレクトで URL をハードコーディングせずに済む
+Route::get('/post/{post}', [PostController::class, 'show'])->name('posts.show');
