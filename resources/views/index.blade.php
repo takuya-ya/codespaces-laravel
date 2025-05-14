@@ -3,14 +3,16 @@
         My Laravel App
     </x-slot>
 
-    <h1>Posts</h1>
+    <h1>Posts
+        <a href="{{ route('posts.create')}}">Add new</a>
+    </h1>
     <ul>
-        @forelse ($posts as $post)
+    @forelse ($posts as $post)
         <li>
             <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
         </li>
-        @empty
+    @empty
         <li>No post!</li>
-        @endforelse
+    @endforelse
     </ul>
 </x-layout>
